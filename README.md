@@ -164,6 +164,29 @@ These directives are currently available:
 | [JSON](wrangler-docs/functions/json-functions.md)                               | Functions that can be useful in transforming your data           |
 | [Types](wrangler-docs/functions/type-functions.md)                              | Functions for detecting the type of data                         |
 
+
+
+
+## Byte Size and Time Duration Parsers
+
+Wrangler now supports parsing and aggregating byte sizes (KB, MB, GB, etc.) and time durations (ms, s, m, h, d).
+
+### Usage Examples
+set-column  "10MB"
+set-column  bytes() / 1024
+#### Parsing Byte Sizes
+
+set-column  "100ms"
+set-column  duration() / 1000000000
+
+#### Aggregating Stats
+aggregate-stats   
+
+total_size_mb total_time_sec
+
+
+This directive aggregates values from columns containing byte sizes and time durations, 
+producing a summary row with totals converted to MB and seconds.
 ## Performance
 
 Initial performance tests show that with a set of directives of high complexity for

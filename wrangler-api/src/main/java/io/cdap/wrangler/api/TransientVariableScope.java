@@ -21,6 +21,7 @@ package io.cdap.wrangler.api;
  * The variable can be either LOCAL or GLOBAL.
  */
 public enum TransientVariableScope {
+  DIRECTIVE,
   LOCAL,
   GLOBAL
 }

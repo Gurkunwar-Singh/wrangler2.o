@@ -15,6 +15,15 @@
  */
 
 grammar Directives;
+// Punctuation
+SEMI    : ';' ;
+LPAREN  : '(' ;
+RPAREN  : ')' ;
+
+// Keywords
+IF      : 'if' ;
+ELSE    : 'else' ;
+FOR     : 'for' ;
 
 options {
   language = Java;
@@ -139,9 +148,17 @@ numberRange
  : Number ':' Number '=' value
  ;
 
-value
- : String | Number | Column | Bool
- ;
+
+ value
+    : STRING
+    | NUMBER
+    | BOOLEAN
+    | BYTE_SIZE
+    | TIME_DURATION
+    ;
+
+    
+ 
 
 ecommand
  : '!' Identifier
@@ -311,3 +328,14 @@ fragment Int
 fragment Digit
  : [0-9]
  ;
+
+fragment BYTE_UNIT : [kKmMgGtTpP][bB] ;
+BYTE_SIZE : NUMBER BYTE_UNIT ;
+
+
+fragment TIME_UNIT : ('ms' | 's' | 'm' | 'h' | 'd') ;
+TIME_DURATION : NUMBER TIME_UNIT ;
+
+
+byteSizeArg : BYTE_SIZE ;
+timeDurationArg : TIME_DURATION ;

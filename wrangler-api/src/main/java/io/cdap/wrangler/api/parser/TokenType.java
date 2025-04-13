@@ -18,7 +18,7 @@ package io.cdap.wrangler.api.parser;
 
 import io.cdap.wrangler.api.annotations.PublicEvolving;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 
 /**
  * The TokenType class provides the enumerated types for different types of
@@ -42,7 +42,7 @@ import java.io.Serializable;
  * @see TextList
  */
 @PublicEvolving
-public enum TokenType implements Serializable {
+public enum TokenType {
   /**
    * Represents the enumerated type for the object {@code DirectiveName} type.
    * This type is associated with the token that is recognized as a directive
@@ -107,6 +107,7 @@ public enum TokenType implements Serializable {
    *
    */
   NUMERIC_LIST,
+  STRING_LITERAL, 
 
   /**
    * Represents the enumerated type for the object of type {@code BoolList} type.
@@ -152,5 +153,7 @@ public enum TokenType implements Serializable {
    * Represents the enumerated type for the object of type {@code String} with restrictions
    * on characters that can be present in a string.
    */
-  IDENTIFIER
+  IDENTIFIER,
+  BYTE_SIZE,
+  TIME_DURATION
 }
